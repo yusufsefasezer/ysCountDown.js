@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Example: New Year</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #ffd54f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: normal;
+    }
+
+    li {
+      display: inline-block;
+      font-size: 1.5em;
+      list-style-type: none;
+      padding: 1em;
+      text-transform: uppercase;
+    }
+
+    li span {
+      display: block;
+      font-size: 4.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Countdown to new year:</h1>
+    <ul>
+      <li><span id="days">0</span>days</li>
+      <li><span id="hours">0</span>Hours</li>
+      <li><span id="minutes">0</span>Minutes</li>
+      <li><span id="seconds">0</span>Seconds</li>
+    </ul>
+  </div>
+
+  <script src="../dist/yscountdown.min.js"></script>
+  <script>
+
+    var daysElement = document.querySelector("#days");
+    var hoursElement = document.querySelector("#hours");
+    var minutesElement = document.querySelector("#minutes");
+    var secondsElement = document.querySelector("#seconds");
+    var containerElement = document.querySelector(".container");
+    var endDate = (new Date().getFullYear() + 1) + "/01/01";
+
+    var myCountDown = new ysCountDown(endDate, function (remaining, finished) {
+
+      if (finished) {
+        containerElement.textContent = "Expired";
+      }
+
+      daysElement.textContent = remaining.totalDays;
+      hoursElement.textContent = remaining.hours;
+      minutesElement.textContent = remaining.minutes;
+      secondsElement.textContent = remaining.seconds;
+
+    });
+
+  </script>
+</body>
+
+</html>

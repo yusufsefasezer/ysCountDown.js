@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Example: Simple</title>
+</head>
+
+<body>
+
+  <p id="counter"></p>
+
+  <script src="../dist/yscountdown.min.js"></script>
+  <script>
+
+    var counterElement = document.querySelector("#counter");
+    var endDate = (new Date().getFullYear() + 1) + "/01/01";
+
+    var myCountDown = new ysCountDown(endDate, function (remaining, finished) {
+
+      var message = "";
+
+      if (finished) {
+        message = "Expired";
+      } else {
+        message = remaining.totalDays + " d ";
+        message += remaining.minutes + " m ";
+        message += remaining.seconds + " s ";
+      }
+
+      counterElement.textContent = message;
+
+    });
+
+  </script>
+</body>
+
+</html>

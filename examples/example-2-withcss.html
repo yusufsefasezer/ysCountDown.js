@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Example: WithCSS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffd54f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .container {
+      color: #333;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li {
+      display: inline-block;
+      font-size: 1.5em;
+      list-style-type: none;
+      padding: 1em;
+      text-transform: uppercase;
+    }
+
+    li span {
+      display: block;
+      font-size: 4.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <ul>
+      <li><span id="days">0</span>days</li>
+      <li><span id="hours">0</span>Hours</li>
+      <li><span id="minutes">0</span>Minutes</li>
+      <li><span id="seconds">0</span>Seconds</li>
+    </ul>
+  </div>
+
+  <script src="../dist/yscountdown.min.js"></script>
+  <script>
+
+    var daysElement = document.querySelector("#days");
+    var hoursElement = document.querySelector("#hours");
+    var minutesElement = document.querySelector("#minutes");
+    var secondsElement = document.querySelector("#seconds");
+    var containerElement = document.querySelector(".container");
+    var endDate = (new Date().getFullYear() + 1) + "/01/01";
+
+    var myCountDown = new ysCountDown(endDate, function (remaining, finished) {
+
+      if (finished) {
+        containerElement.textContent = "Expired";
+      }
+      
+      daysElement.textContent = remaining.totalDays;
+      hoursElement.textContent = remaining.hours;
+      minutesElement.textContent = remaining.minutes;
+      secondsElement.textContent = remaining.seconds;
+
+    });
+
+  </script>
+</body>
+
+</html>
