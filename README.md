@@ -1,7 +1,7 @@
 # ysCountDown.js
 A simple and easy-to-use countdown plugin.
 
-## [Download](https://github.com/yusufsefasezer/ysCountDown.js/archive/master.zip) / [Demo](http://www.yusufsezer.com/projects/ysCountDown/) / [yusufsezer.com](http://www.yusufsezer.com)
+## [Download](https://github.com/yusufsefasezer/ysCountDown.js/archive/master.zip) / [Demo](http://www.yusufsezer.com/ysCountDown.js/examples/example-4-coming-soon.html) / [yusufsezer.com](http://www.yusufsezer.com)
 
 ## Why should I use ysCountDown.js?
 * No need any plug-in - does not need any plugin or library.
