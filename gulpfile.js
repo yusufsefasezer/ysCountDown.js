@@ -30,30 +30,24 @@ var banner = {
     ' */\n'
 };
 
-gulp.task('clean', function () {
+function clean(resolve) {
   del.sync([paths.output]);
-});
+  resolve();
+}
 
-gulp.task('build:scripts', function () {
-  const jsTasks = lazypipe()
-    .pipe(header, banner.full, { package: package })
-    .pipe(gulp.dest, paths.output)
-    .pipe(rename, { suffix: '.min' })
-    .pipe(uglify)
-    .pipe(header, banner.min, { package: package })
-    .pipe(gulp.dest, paths.output)
-
-  return gulp.src(paths.input)
+function buildScripts() {
+  return gulp.src(paths.scripts.input)
     .pipe(plumber())
-    .pipe(jsTasks());
-});
+    .pipe(header(banner.full, { package: package }))
+    .pipe(gulp.dest(paths.scripts.output))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(uglify())
+    .pipe(header(banner.min, { package: package }))
+    .pipe(gulp.dest(paths.scripts.output))
+}
 
-gulp.task('watch', function () {
-  gulp.watch(paths.input).on('change', function () {
-    gulp.start('default');
-  });
-});
-
-gulp.task('build', ['build:scripts'])
-
-gulp.task('default', ['clean', 'build']);
+exports.build = gulp.parallel(buildScripts);
+exports.watch = function () {
+  gulp.watch(paths.input, exports.build);
+}
+exports.default = gulp.series(clean, exports.build);
