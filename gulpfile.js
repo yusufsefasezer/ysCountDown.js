@@ -35,14 +35,14 @@ function clean(resolve) {
 }
 
 function buildScripts() {
-  return gulp.src(paths.scripts.input)
+  return gulp.src(paths.input)
     .pipe(plumber())
     .pipe(header(banner.full, { package: package }))
-    .pipe(gulp.dest(paths.scripts.output))
+    .pipe(gulp.dest(paths.output))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(header(banner.min, { package: package }))
-    .pipe(gulp.dest(paths.scripts.output))
+    .pipe(gulp.dest(paths.output))
 }
 
 exports.build = gulp.parallel(buildScripts);

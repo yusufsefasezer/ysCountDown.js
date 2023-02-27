@@ -1,6 +1,6 @@
 /*!
  * yscountdown - A simple and easy-to-use countdown plugin.
- * Author: Yusuf SEZER <yusufsezer@mail.com>
+ * Author: Yusuf Sezer <yusufsezer@mail.com>
  * Version: v1.0.0
  * Url: https://github.com/yusufsefasezer/ysCountDown.js
  * License: MIT
