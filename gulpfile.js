@@ -4,7 +4,6 @@ const header = require('gulp-header');
 const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
-const lazypipe = require('lazypipe');
 const package = require('./package.json');
 
 var paths = {
