@@ -1,6 +1,8 @@
 # ysCountDown.js
 A simple and easy-to-use countdown plugin.
 
+**ysCountDown.js** is a powerful and versatile **JavaScript countdown library** that allows you to effortlessly implement countdown timers in your web applications. With its simple and easy-to-use plugin, you can seamlessly display countdowns in seconds, minutes, hours, days, days to a week, days to a month, weeks, weeks to a month, months, months to a year, years, total days, total hours, total minutes, and total seconds.
+
 ## [Download](https://github.com/yusufsefasezer/ysCountDown.js/archive/master.zip) / [Demo](https://www.yusufsezer.com/projects/yscountdown-js/) / [yusufsezer.com](https://www.yusufsezer.com)
 
 ## Why should I use ysCountDown.js?
